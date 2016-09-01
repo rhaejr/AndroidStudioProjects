@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
@@ -33,13 +34,24 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
-
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
+    }
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        display(quanity);
-        displayPrice(quanity * costOfCoffee);
+//        display(quanity);
+//        displayPrice(quanity * costOfCoffee);
+        Toast toast;
+        toast =  Toast.makeText(getApplicationContext(),"Ordered", Toast.LENGTH_SHORT);
+        if(toast != null) {
+            toast.show();
+        }
     }
 
     /**
